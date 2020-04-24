@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【分享】跨平台的Markdown編輯軟體 - typora"/><meta name="keywords" content="Dephilia" /><meta name="description" content="作為Markdown的愛用者，一直在找mac上有沒有好用的md編輯軟體。
+試用過了iWriter Pro（付費的），MacDown（免費），但都有其缺陷。
+直到最近發現了一個開發中的專案，Typora。
+軟體名稱：Typora
+價格：Beta免費
+平台：Windows / MacOS / Linux
+官方網站：https://typora.io
+（本篇文章使用Typora寫完）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【分享】跨平台的Markdown編輯軟體 - typora">
+<meta property="og:url" content="http://www.dephilia.moe/2019/09/17/typora-intro/index.html">
+<meta property="og:site_name" content="虫世木場">
+<meta property="og:description" content="作為Markdown的愛用者，一直在找mac上有沒有好用的md編輯軟體。
+試用過了iWriter Pro（付費的），MacDown（免費），但都有其缺陷。
+直到最近發現了一個開發中的專案，Typora。
+軟體名稱：Typora
+價格：Beta免費
+平台：Windows / MacOS / Linux
+官方網站：https://typora.io
+（本篇文章使用Typora寫完）">
+<meta property="og:image" content="http://www.dephilia.moe/1.png">
+<meta property="og:image" content="http://www.dephilia.moe/2.png">
+<meta property="og:image" content="http://www.dephilia.moe/4.png">
+<meta property="og:image" content="http://www.dephilia.moe/3.png">
+<meta property="og:updated_time" content="2019-09-17T09:03:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【分享】跨平台的Markdown編輯軟體 - typora">
+<meta name="twitter:description" content="作為Markdown的愛用者，一直在找mac上有沒有好用的md編輯軟體。
+試用過了iWriter Pro（付費的），MacDown（免費），但都有其缺陷。
+直到最近發現了一個開發中的專案，Typora。
+軟體名稱：Typora
+價格：Beta免費
+平台：Windows / MacOS / Linux
+官方網站：https://typora.io
+（本篇文章使用Typora寫完）">
+<meta name="twitter:image" content="http://www.dephilia.moe/1.png">
+
+<link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://www.dephilia.moe/2019/09/17/typora-intro/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144568170-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144568170-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
+</script>
+
+    <title>【分享】跨平台的Markdown編輯軟體 - typora - 虫世木場</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">虫世木場</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首頁
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">歸檔
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">標籤
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分類
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">關於
+          </li>
+      </a><a href="/intro/">
+        <li class="mobile-menu-item">經歷
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">虫世木場</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首頁
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            歸檔
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            標籤
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分類
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            關於
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/intro/">
+            經歷
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【分享】跨平台的Markdown編輯軟體 - typora
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-17
+        </span><span class="post-category">
+            <a href="/categories/share/">share</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>作為Markdown的愛用者，一直在找mac上有沒有好用的md編輯軟體。</p>
+<p>試用過了iWriter Pro（付費的），MacDown（免費），但都有其缺陷。</p>
+<p>直到最近發現了一個開發中的專案，Typora。</p>
+<p>軟體名稱：Typora</p>
+<p>價格：Beta免費</p>
+<p>平台：Windows / MacOS / Linux</p>
+<p>官方網站：<a href="https://typora.io" target="_blank" rel="external">https://typora.io</a></p>
+<p>（本篇文章使用Typora寫完）</p>
+<a id="more"></a>
+
+<p><img src="1.png" alt="1"></p>
+<p>點進官方頁面，就能看到非常簡潔的白底黑字介面，與軟體相同，是個強調簡潔閱讀操作的站體。</p>
+<p>之前試用了iWriter Pro，但有著圖片相對連結讀取問題；而MacDown則強調編輯，不易直接閱讀使用。</p>
+<p>而Typora直接就是簡潔的閱讀編輯一體，你可以在兩個模式下切換編輯及閱讀。</p>
+<p><img src="2.png" alt="2"></p>
+<p>就以編輯一個Python的原始碼來說，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello word."</span>)</span><br></pre></td></tr></table></figure>
+
+<p>以下是於<strong>原始碼模式</strong>編輯的樣子。</p>
+<p><img src="4.png" alt="4"></p>
+<p>以下是<strong>閱讀模式</strong>編輯的樣子：<br><img src="3.png" alt="3"></p>
+<p>在Mac下，按住<code>⌘+/</code>可以自由地切換兩個模式，非常方便。</p>
+<p>原本都跳槽到用文字編輯寫md的我，現在覺得typora終於實現了輕量簡便的編輯。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/app/">app</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/09/17/opengraph-swig/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">【筆記】在Hexo中插入Open graph</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/07/25/mlmagplus_kori/">
+        <span class="next-text nav-default">【翻譯】 MILLION LIVE! MAGAZINE Plus+ VOL. 1：香里有佐小姐訪談部分</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Dephilia</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.dephilia.moe/2019/09/17/typora-intro/';
+        this.page.identifier = '2019/09/17/typora-intro/';
+        this.page.title = '【分享】跨平台的Markdown編輯軟體 - typora';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//dephilia.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【筆記】Precision and recall：Review"/><meta name="keywords" content="Dephilia" /><meta name="description" content="因為一直忘記Precision以及Recall兩個參數的定義以及應用，筆記一下。
+
+
+（圖片取自維基）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【筆記】Precision and recall：Review">
+<meta property="og:url" content="http://www.dephilia.moe/2019/10/08/precision-recall/index.html">
+<meta property="og:site_name" content="虫世木場">
+<meta property="og:description" content="因為一直忘記Precision以及Recall兩個參數的定義以及應用，筆記一下。
+
+
+（圖片取自維基）">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/700px-Precisionrecall.svg.png">
+<meta property="og:updated_time" content="2019-10-08T09:14:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【筆記】Precision and recall：Review">
+<meta name="twitter:description" content="因為一直忘記Precision以及Recall兩個參數的定義以及應用，筆記一下。
+
+
+（圖片取自維基）">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/700px-Precisionrecall.svg.png">
+
+<link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://www.dephilia.moe/2019/10/08/precision-recall/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144568170-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144568170-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
+</script>
+
+    <title>【筆記】Precision and recall：Review - 虫世木場</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">虫世木場</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首頁
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">歸檔
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">標籤
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分類
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">關於
+          </li>
+      </a><a href="/intro/">
+        <li class="mobile-menu-item">經歷
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">虫世木場</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首頁
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            歸檔
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            標籤
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分類
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            關於
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/intro/">
+            經歷
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【筆記】Precision and recall：Review
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-10-08
+        </span><span class="post-category">
+            <a href="/categories/machine-learning/">machine learning</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目錄</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sklearn中調用參數"><span class="toc-text">sklearn中調用參數</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>因為一直忘記Precision以及Recall兩個參數的定義以及應用，筆記一下。</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/700px-Precisionrecall.svg.png" style="zoom:50%;">
+
+<p><a href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="external">（圖片取自維基）</a></p>
+<a id="more"></a>
+
+
+
+<p>如圖所示，大的圈圈代表著判斷的結果。Positives表示判定為是，Negatives表示否；True表示結果為真，False表示結果為否。</p>
+<p>此處用（n:m）表示結果，n表示判定結果，m表示真實結果。</p>
+<p>TP（True Positives）表示判斷為是，結果為真（1:1）；FP表示判斷為是，結果為否（1:0）；FN表示判斷為否，結果為真（0:1）；TN表示判斷為否，結果為否（0:0）。</p>
+<p>目標情況是希望TP與TN最大化，FP以及FN最小化，也就是False越少越好。</p>
+<p>因此定義準確度（<strong>Accuracy</strong>）為</p>
+<p>$Accuracy=\frac{TP+TN}{TP+TN+FP+FN}=\frac{T}{T+F}$</p>
+<p>也就是所有結果中，判斷正確的結果比例。</p>
+<p>在一些Learning的使用情況下，不一定追求Accuracy的正確性而已，有的時候也會注重其他兩個參數：適合度（<strong>Precision</strong>）以及再現度（<strong>Recall</strong>），定義為</p>
+<p>$Precision=\frac{TP}{TP+FP}$</p>
+<p>$Recall=\frac{TP}{TP+FN}$</p>
+<p>Precision的意義為：判斷為正的結果中，正確率為多少？</p>
+<p>也就是在一群蘋果中，挑選出爛掉的蘋果，真的爛掉的蘋果有多少？挑選出的爛蘋果中，好蘋果越少，Precision越高。</p>
+<p>Recall的意義則為：應當判斷為正的結果中，有多少判斷為正？</p>
+<p>也就是在一群蘋果中，在挑選出的爛蘋果外，還有多少爛蘋果沒被找到？越少沒被找到的爛蘋果，Recall就越高。</p>
+<p>假設這一箱蘋果是要給小朋友吃的水果，爛掉的蘋果非常危險，絕對不能讓小朋友吃到，這時Recall就非常重要。提升Recall的意義就是「寧可錯殺100也不放過一個」。</p>
+<p>然而對於蘋果果農而言，果農不希望好的蘋果都被挑掉，越多蘋果出貨，錢就越多。此時Precision就非常重要，選錯了太多好的蘋果當作爛掉的蘋果賣，是會虧錢的。</p>
+<p>Precision以及Recall並非相輔相成，這時也有函數能代表著綜合標準（利用Harmonic Mean, 調和平均數來代表），也就是<strong>F1 score</strong>。</p>
+<p>$F=2*\frac{precision\times recall}{precision+recall}$</p>
+<p>雖然F1 score不見得能作為最終的判斷標準，但作為一個指標也夠了。</p>
+<h2 id="sklearn中調用參數"><a href="#sklearn中調用參數" class="headerlink" title="sklearn中調用參數"></a>sklearn中調用參數</h2><p>在python中，學術module - sklearn已經有寫好可以作為分數指標的函式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">metrics.precision_score(real_number, predict_number)</span><br><span class="line">metrics.recall_score(real_number, predict_number)</span><br><span class="line">metrics.f1_score(real_number, predict_number)</span><br></pre></td></tr></table></figure>
+
+<p>在tensorflow中也有類似用法。本文使用Tensorflow 2.0作為範例，在1.14下無法運作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.keras.metrics <span class="keyword">import</span> Recall, Precision</span><br><span class="line">rc = Recall()</span><br><span class="line">rc.update_state([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">print(<span class="string">'Final result: '</span>, rc.result().numpy())</span><br><span class="line"></span><br><span class="line">pc = Precision()</span><br><span class="line">pc.update_state([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">print(<span class="string">'Final result: '</span>, pc.result().numpy())</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="external">https://en.wikipedia.org/wiki/Precision_and_recall</a></li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Recall" target="_blank" rel="external">https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Recall</a></li>
+</ol>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/python/">python</a>
+            <a href="/tags/machine-learning/">machine learning</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/10/21/path-problem/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">【筆記】bin file loading order in shell</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/09/29/potaku/">
+        <span class="next-text nav-default">【日曆】自用日曆</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Dephilia</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.dephilia.moe/2019/10/08/precision-recall/';
+        this.page.identifier = '2019/10/08/precision-recall/';
+        this.page.title = '【筆記】Precision and recall：Review';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//dephilia.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【筆記】python的上層資料夾引用"/><meta name="keywords" content="Dephilia" /><meta name="description" content="今天幫忙學弟妹解決問題才發現從來沒碰過如何隔著一個主資料夾import module。
+以往都是盡量不這樣做（避免一些無謂的引用錯誤），但真的需要的時候還真的可以用到。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【筆記】python的上層資料夾引用">
+<meta property="og:url" content="http://www.dephilia.moe/2019/09/24/py-updir/index.html">
+<meta property="og:site_name" content="虫世木場">
+<meta property="og:description" content="今天幫忙學弟妹解決問題才發現從來沒碰過如何隔著一個主資料夾import module。
+以往都是盡量不這樣做（避免一些無謂的引用錯誤），但真的需要的時候還真的可以用到。">
+<meta property="og:updated_time" content="2019-09-23T17:57:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【筆記】python的上層資料夾引用">
+<meta name="twitter:description" content="今天幫忙學弟妹解決問題才發現從來沒碰過如何隔著一個主資料夾import module。
+以往都是盡量不這樣做（避免一些無謂的引用錯誤），但真的需要的時候還真的可以用到。">
+
+<link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://www.dephilia.moe/2019/09/24/py-updir/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144568170-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144568170-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
+</script>
+
+    <title>【筆記】python的上層資料夾引用 - 虫世木場</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">虫世木場</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首頁
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">歸檔
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">標籤
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分類
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">關於
+          </li>
+      </a><a href="/intro/">
+        <li class="mobile-menu-item">經歷
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">虫世木場</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首頁
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            歸檔
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            標籤
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分類
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            關於
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/intro/">
+            經歷
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【筆記】python的上層資料夾引用
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-24
+        </span><span class="post-category">
+            <a href="/categories/Note/">Note</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目錄</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#問題描述"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解決"><span class="toc-text">解決</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>今天幫忙學弟妹解決問題才發現從來沒碰過如何隔著一個主資料夾import module。</p>
+<p>以往都是盡量不這樣做（避免一些無謂的引用錯誤），但真的需要的時候還真的可以用到。</p>
+<a id="more"></a>
+
+<h2 id="問題描述"><a href="#問題描述" class="headerlink" title="問題描述"></a>問題描述</h2><p>首先有個檔案架構如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── dir1</span><br><span class="line">│   ├── apple.py</span><br><span class="line">└── dir2</span><br><span class="line">    └── banana.py</span><br></pre></td></tr></table></figure>
+
+<p><code>apple.py</code>檔案中有此敘述：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"I eat apple."</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在<code>banana.py</code>中需要引用到<code>apple.py</code>的話，直覺會想到要這樣寫：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ..dir1 <span class="keyword">import</span> apple</span><br></pre></td></tr></table></figure>
+
+<p>執行後會出現以下錯誤訊息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python banana.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "banana.py", line 1, in &lt;module&gt;</span><br><span class="line">    from ..dir1 import apple</span><br><span class="line">ValueError: attempted relative import beyond top-level package</span><br></pre></td></tr></table></figure>
+
+<h2 id="解決"><a href="#解決" class="headerlink" title="解決"></a>解決</h2><p>將import修改為這樣</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'../'</span>)</span><br><span class="line"><span class="comment"># 或是這樣也行</span></span><br><span class="line"><span class="comment"># sys.path.append('..') </span></span><br><span class="line"><span class="keyword">from</span> dir1 <span class="keyword">import</span> apple</span><br></pre></td></tr></table></figure>
+
+<p>就能解決了</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Techonology/">Techonology</a>
+            <a href="/tags/python/">python</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/09/24/vim/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">【筆記】vim相關操作</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/09/19/tenkinoko/">
+        <span class="next-text nav-default">【心得】天氣之子</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Dephilia</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.dephilia.moe/2019/09/24/py-updir/';
+        this.page.identifier = '2019/09/24/py-updir/';
+        this.page.title = '【筆記】python的上層資料夾引用';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//dephilia.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
