@@ -15,14 +15,17 @@
 
 <meta name="description" content="【程式】Jury's Test"/><meta name="keywords" content="Dephilia" /><meta name="description" content="就是個離散控制下的Jury’s Test測試小程式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【程式】Jury's Test">
+<meta property="og:title" content="【程式】Jury&#39;s Test">
 <meta property="og:url" content="http://www.dephilia.moe/2019/09/24/jurytest/index.html">
 <meta property="og:site_name" content="虫世木場">
 <meta property="og:description" content="就是個離散控制下的Jury’s Test測試小程式。">
-<meta property="og:updated_time" content="2019-09-24T17:54:29.000Z">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2019-09-24T07:41:20.000Z">
+<meta property="article:modified_time" content="2019-09-24T17:54:29.000Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="Techonology">
+<meta property="article:tag" content="ControlSystem">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【程式】Jury's Test">
-<meta name="twitter:description" content="就是個離散控制下的Jury’s Test測試小程式。">
 
 <link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
 <link rel="canonical" href="http://www.dephilia.moe/2019/09/24/jurytest/"/>
@@ -60,7 +63,7 @@
 </script>
 
     <title>【程式】Jury's Test - 虫世木場</title>
-  </head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -151,7 +154,7 @@
     <div class="post-content"><p>就是個離散控制下的Jury’s Test測試小程式。</p>
 <a id="more"></a>
 
-<p><a href="https://gist.github.com/Dephilia/bd1488551bf0364c231a2460f9868a0b" target="_blank" rel="external"><strong>gist</strong></a></p>
+<p><a href="https://gist.github.com/Dephilia/bd1488551bf0364c231a2460f9868a0b" target="_blank" rel="noopener"><strong>gist</strong></a></p>
 <p><strong>原始碼</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Title: Jury's Test For Descrete Control System</span></span><br><span class="line"><span class="string">Copyright: Dephilia</span></span><br><span class="line"><span class="string">Date: 2019/09/23</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calnextrow</span><span class="params">(row)</span>:</span></span><br><span class="line">  <span class="string">"""This will cal a new row for test."""</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># input: an an-1...</span></span><br><span class="line">  <span class="comment"># ouput: bn bn-1...</span></span><br><span class="line">  size=len(row)</span><br><span class="line">  nextrow=[]</span><br><span class="line">  row_rev=row[::<span class="number">-1</span>]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(size<span class="number">-1</span>):</span><br><span class="line">    temp=row[<span class="number">0</span>]*row_rev[i+<span class="number">1</span>]-row[i+<span class="number">1</span>]*row_rev[<span class="number">0</span>]</span><br><span class="line">    nextrow.append(temp)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> nextrow</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Jury's test</span></span><br><span class="line">  </span><br><span class="line">  <span class="string">"""</span></span><br><span class="line"><span class="string">  Input example:</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  [1,0,-0.25]</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">import</span> ast</span><br><span class="line">  intext=input(<span class="string">"Input characteristic equation as array:\nFor example:[1,0,-0.25]\n"</span>)</span><br><span class="line"></span><br><span class="line">  testlist=ast.literal_eval(intext)</span><br><span class="line"></span><br><span class="line">  order=len(testlist)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># a_n&gt;0</span></span><br><span class="line">  <span class="keyword">if</span> testlist[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"a_n must large than 0."</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># First check Q(1)&gt;0</span></span><br><span class="line">  r1=sum(testlist)</span><br><span class="line">  print(<span class="string">"Q(1)="</span>,r1)</span><br><span class="line">  <span class="keyword">if</span> r1&lt;=<span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"Unstable"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Next check (-1)^nQ(-1)&gt;0</span></span><br><span class="line"></span><br><span class="line">  r2=(<span class="number">-1</span>)**order*sum([testlist[i]*((<span class="number">-1</span>)**(order-i)) <span class="keyword">for</span> i <span class="keyword">in</span> range(order)]+[testlist[<span class="number">-1</span>]])</span><br><span class="line">  print(<span class="string">"(-1)^n Q(-1)="</span>,r2)</span><br><span class="line">  <span class="keyword">if</span> r2&lt;=<span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"Unstable"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Check |a0|&lt;an</span></span><br><span class="line">  r3=abs(testlist[<span class="number">-1</span>])&lt;testlist[<span class="number">0</span>]</span><br><span class="line">  print(<span class="string">"|a0|&lt;an="</span>,r3)</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> r3:</span><br><span class="line">    print(<span class="string">"Unstable"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Establish Table</span></span><br><span class="line">  deal=testlist</span><br><span class="line">  print(<span class="number">0</span>,<span class="string">" - "</span>,deal)</span><br><span class="line">  print(<span class="number">0</span>,<span class="string">" - "</span>,deal[::<span class="number">-1</span>])</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(order<span class="number">-1</span>):</span><br><span class="line">    deal=calnextrow(deal)</span><br><span class="line">    print(i+<span class="number">1</span>,<span class="string">" - "</span>,deal)</span><br><span class="line">    print(i+<span class="number">1</span>,<span class="string">" - "</span>,deal[::<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">if</span> abs(deal[<span class="number">0</span>])&gt;=abs(deal[<span class="number">-1</span>]):</span><br><span class="line">      print(<span class="string">"Unstable"</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  print(<span class="string">"\033[1;35m Stable \033[0m"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
 
@@ -178,24 +181,24 @@
     </article></div><div class="comments" id="comments"><div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
-        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
         </div><div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
   </span>
   <span class="division">|</span>
   <span class="theme-info">
     主題 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
   </span>
 
   <span class="copyright-year">&copy;2019 - 2020<span class="heart">

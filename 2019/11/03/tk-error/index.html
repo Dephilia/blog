@@ -17,10 +17,14 @@
 <meta property="og:title" content="【Python】tkinter import error">
 <meta property="og:url" content="http://www.dephilia.moe/2019/11/03/tk-error/index.html">
 <meta property="og:site_name" content="虫世木場">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://www.dephilia.moe/2019/11/03/tk-error/top.png">
-<meta property="og:updated_time" content="2019-11-03T10:58:23.000Z">
+<meta property="article:published_time" content="2019-11-03T10:49:58.000Z">
+<meta property="article:modified_time" content="2019-11-03T10:58:23.000Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="pyenv">
+<meta property="article:tag" content="tkinter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Python】tkinter import error">
 <meta name="twitter:image" content="http://www.dephilia.moe/2019/11/03/tk-error/top.png">
 
 <link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
@@ -59,7 +63,7 @@
 </script>
 
     <title>【Python】tkinter import error - 虫世木場</title>
-  </head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -152,7 +156,7 @@
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#問題描述"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#問題解決"><span class="toc-text">問題解決</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#懶人code"><span class="toc-text">懶人code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a>
     </div>
-  </div><div class="post-content"><img src="/2019/11/03/tk-error/top.png" alt="Front" title="Front">
+  </div><div class="post-content"><img src="/2019/11/03/tk-error/top.png" class="" title="Front">
 
 <a id="more"></a>
 
@@ -161,16 +165,24 @@
 <p><strong>Error message</strong>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _tkinter <span class="comment"># If this fails your Python may not be configured for Tk </span></span><br><span class="line"></span><br><span class="line">ImportError: No module named _tkinter</span><br></pre></td></tr></table></figure>
 
+
+
 <h3 id="問題描述"><a href="#問題描述" class="headerlink" title="問題描述"></a>問題描述</h3><p>筆者使用<code>pyenv</code>架設python環境，在<code>import tkinter</code>出現了錯誤：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError: No module named _tkinter</span><br></pre></td></tr></table></figure>
+
+
 
 <p>這是由於pyenv在安裝python時沒有將適當的環境變數引入，或是沒有安裝<code>tcl-tk</code>。</p>
 <h3 id="問題解決"><a href="#問題解決" class="headerlink" title="問題解決"></a>問題解決</h3><p>（不想看這麼多的話可以直接跳到<strong><a href="#懶人code">懶人包</a></strong>）</p>
 <p>先確認有沒有安裝tcl-tk，沒有的話按照下列方式安裝。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 引入tck-tk</span></span><br><span class="line">brew update</span><br><span class="line">brew install tcl-tk</span><br></pre></td></tr></table></figure>
 
+
+
 <p>使用brew內建的python的話，僅需要移除原本的python再加入flag安裝就好了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall python3</span><br><span class="line">brew install python3 --with-tcl-tk</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不需要進行下一步</span></span><br></pre></td></tr></table></figure>
+
+
 
 <p>安裝完之後，在<code>~/.bashrc</code>或是<code>~/.zshrc</code>等初始設定檔中加入以下環境變數：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> tcl-tk solution</span></span><br><span class="line">TKPATH="/usr/local/opt/tcl-tk"</span><br><span class="line">export LDFLAGS="-L$TKPATH/lib"</span><br><span class="line">export CPPFLAGS="-I$TKPATH/include"</span><br><span class="line">export PATH=$PATH:$TKPATH/bin</span><br></pre></td></tr></table></figure>
@@ -180,11 +192,17 @@
 <p>移除原本的python，再重新安裝。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">備份pip</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"></span><br><span class="line">pyenv uninstall 3.8.0</span><br><span class="line">pyenv install 3.8.0</span><br><span class="line">pyenv global 3.8.0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">還原pip</span></span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
 
+
+
 <p>最後執行測試code</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m tkinter</span><br></pre></td></tr></table></figure>
 
+
+
 <p>出現了RuntimeError</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: tk.h version (<span class="number">8.6</span>) doesn<span class="string">'t match libtk.a version (8.5)</span></span><br></pre></td></tr></table></figure>
+
+
 
 <p>這是因為環境變數<code>PYTHON_CONFIGURE_OPTS</code>沒有指定tk版本，因此再加入環境變數：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_CONFIGURE_OPTS="--with-tcltk-libs='$LDFLAGS -ltcl8.6 -ltk8.6' --with-tcltk-includes=$CPPFLAGS"</span><br></pre></td></tr></table></figure>
@@ -195,13 +213,15 @@
 <p>或是你想要直接進到設定檔，直接加入這行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 注意tk位置可能會不同，請先確認</span></span><br><span class="line">export PYTHON_CONFIGURE_OPTS="--with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib -ltcl8.6 -ltk8.6' --with-tcltk-includes=-I/usr/local/opt/tcl-tk/include"</span><br></pre></td></tr></table></figure>
 
+
+
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>pyenv在安裝python的時候會偵測環境變數<code>PYTHON_CONFIGURE_OPTS</code>的<code>--with-tcltk-libs</code>以及<code>--with-tcltk-includes</code>。因此在環境變數中設定<code>PYTHON_CONFIGURE_OPTS</code>就能解決問題。</p>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li><a href="https://yopiyama.hatenablog.com/entry/2019/09/02/052513" target="_blank" rel="external">https://yopiyama.hatenablog.com/entry/2019/09/02/052513</a></li>
-<li><a href="https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142#31299142" target="_blank" rel="external">https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142#31299142</a></li>
-<li><a href="https://github.com/jiansoung/issues-list/issues/15" target="_blank" rel="external">https://github.com/jiansoung/issues-list/issues/15</a></li>
-<li><a href="https://github.com/pyenv/pyenv/pull/1397" target="_blank" rel="external">https://github.com/pyenv/pyenv/pull/1397</a></li>
+<li><a href="https://yopiyama.hatenablog.com/entry/2019/09/02/052513" target="_blank" rel="noopener">https://yopiyama.hatenablog.com/entry/2019/09/02/052513</a></li>
+<li><a href="https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142#31299142" target="_blank" rel="noopener">https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142#31299142</a></li>
+<li><a href="https://github.com/jiansoung/issues-list/issues/15" target="_blank" rel="noopener">https://github.com/jiansoung/issues-list/issues/15</a></li>
+<li><a href="https://github.com/pyenv/pyenv/pull/1397" target="_blank" rel="noopener">https://github.com/pyenv/pyenv/pull/1397</a></li>
 </ol>
 
       </div>
@@ -226,24 +246,24 @@
     </article></div><div class="comments" id="comments"><div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
-        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
         </div><div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
   </span>
   <span class="division">|</span>
   <span class="theme-info">
     主題 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
   </span>
 
   <span class="copyright-year">&copy;2019 - 2020<span class="heart">

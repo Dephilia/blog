@@ -13,37 +13,20 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="【筆記】在Hexo中插入Open graph"/><meta name="keywords" content="Dephilia" /><meta name="description" content="在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案：
-1layout/_partials/head.swig
-
-插入這段
-123&amp;#123;&amp;#123;   open_graph(&amp;#123;&amp;#125;)&amp;#125;&amp;#125;
-
-在Facebook開發者工具中，出現了建議添加og:image:width以及og:image:height兩個tags，因此更改參數為：
-123&amp;#">
+<meta name="description" content="【筆記】在Hexo中插入Open graph"/><meta name="keywords" content="Dephilia" /><meta name="description" content="在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案： 1layout&#x2F;_partials&#x2F;head.swig    插入這段 123&amp;#123;&amp;#123;   open_graph(&amp;#123;&amp;#125;)&amp;#125;&amp;#125;    在Facebook開發者工具中，出現了建議添加og:image:width以及og:image:height兩個tags，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【筆記】在Hexo中插入Open graph">
 <meta property="og:url" content="http://www.dephilia.moe/2019/09/17/opengraph-swig/index.html">
 <meta property="og:site_name" content="虫世木場">
-<meta property="og:description" content="在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案：
-1layout/_partials/head.swig
-
-插入這段
-123&amp;#123;&amp;#123;   open_graph(&amp;#123;&amp;#125;)&amp;#125;&amp;#125;
-
-在Facebook開發者工具中，出現了建議添加og:image:width以及og:image:height兩個tags，因此更改參數為：
-123&amp;#">
-<meta property="og:updated_time" content="2019-09-17T10:36:14.000Z">
+<meta property="og:description" content="在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案： 1layout&#x2F;_partials&#x2F;head.swig    插入這段 123&amp;#123;&amp;#123;   open_graph(&amp;#123;&amp;#125;)&amp;#125;&amp;#125;    在Facebook開發者工具中，出現了建議添加og:image:width以及og:image:height兩個tags，">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2019-09-17T09:47:41.000Z">
+<meta property="article:modified_time" content="2019-09-17T10:36:14.000Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="Techonology">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="even">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【筆記】在Hexo中插入Open graph">
-<meta name="twitter:description" content="在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案：
-1layout/_partials/head.swig
-
-插入這段
-123&amp;#123;&amp;#123;   open_graph(&amp;#123;&amp;#125;)&amp;#125;&amp;#125;
-
-在Facebook開發者工具中，出現了建議添加og:image:width以及og:image:height兩個tags，因此更改參數為：
-123&amp;#">
 
 <link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
 <link rel="canonical" href="http://www.dephilia.moe/2019/09/17/opengraph-swig/"/>
@@ -81,7 +64,7 @@
 </script>
 
     <title>【筆記】在Hexo中插入Open graph - 虫世木場</title>
-  </head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -170,12 +153,16 @@
     </header>
 
     <div class="post-content"><p>在Swig渲染下，在樣板Theme資料夾中找找看head的相關檔案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout/_partials/head.swig</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout&#x2F;_partials&#x2F;head.swig</span><br></pre></td></tr></table></figure>
+
+
 
 <p>插入這段</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; </span><br><span class="line">  open_graph(&#123;&#125;)</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在<a href="https://developers.facebook.com/tools/debug/sharing/" target="_blank" rel="external">Facebook開發者工具</a>中，出現了建議添加<code>og:image:width</code>以及<code>og:image:height</code>兩個tags，因此更改參數為：</p>
+
+
+<p>在<a href="https://developers.facebook.com/tools/debug/sharing/" target="_blank" rel="noopener">Facebook開發者工具</a>中，出現了建議添加<code>og:image:width</code>以及<code>og:image:height</code>兩個tags，因此更改參數為：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; </span><br><span class="line">  open_graph(&#123;&quot;og:image:width&quot;: 300, &quot;og:image:height&quot;: 300&#125;)</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -202,24 +189,24 @@
     </article></div><div class="comments" id="comments"><div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
-        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
         </div><div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
   </span>
   <span class="division">|</span>
   <span class="theme-info">
     主題 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
   </span>
 
   <span class="copyright-year">&copy;2019 - 2020<span class="heart">

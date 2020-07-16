@@ -13,25 +13,19 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="【筆記】brew的link問題"/><meta name="keywords" content="Dephilia" /><meta name="description" content="主要是關於
-123Linking /usr/local/Cellar/cmake/3.8.1...Error: Could not symlink share/man/man7/cmake-buildsystem.7/usr/local/share/man/man7 is not writable.
-
-問題的解決方案。">
+<meta name="description" content="【筆記】brew的link問題"/><meta name="keywords" content="Dephilia" /><meta name="description" content="主要是關於 123Linking &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;cmake&#x2F;3.8.1...Error: Could not symlink share&#x2F;man&#x2F;man7&#x2F;cmake-buildsystem.7&#x2F;usr&#x2F;local&#x2F;share&#x2F;man&#x2F;man7 i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【筆記】brew的link問題">
 <meta property="og:url" content="http://www.dephilia.moe/2019/09/24/brew-install-ctlink/index.html">
 <meta property="og:site_name" content="虫世木場">
-<meta property="og:description" content="主要是關於
-123Linking /usr/local/Cellar/cmake/3.8.1...Error: Could not symlink share/man/man7/cmake-buildsystem.7/usr/local/share/man/man7 is not writable.
-
-問題的解決方案。">
-<meta property="og:updated_time" content="2019-09-24T08:18:24.000Z">
+<meta property="og:description" content="主要是關於 123Linking &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;cmake&#x2F;3.8.1...Error: Could not symlink share&#x2F;man&#x2F;man7&#x2F;cmake-buildsystem.7&#x2F;usr&#x2F;local&#x2F;share&#x2F;man&#x2F;man7 i">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2019-09-24T08:18:24.000Z">
+<meta property="article:modified_time" content="2019-09-24T08:18:24.000Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="Techonology">
+<meta property="article:tag" content="brew">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【筆記】brew的link問題">
-<meta name="twitter:description" content="主要是關於
-123Linking /usr/local/Cellar/cmake/3.8.1...Error: Could not symlink share/man/man7/cmake-buildsystem.7/usr/local/share/man/man7 is not writable.
-
-問題的解決方案。">
 
 <link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
 <link rel="canonical" href="http://www.dephilia.moe/2019/09/24/brew-install-ctlink/"/>
@@ -69,7 +63,7 @@
 </script>
 
     <title>【筆記】brew的link問題 - 虫世木場</title>
-  </head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -163,7 +157,7 @@
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#問題描述"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解決方法"><span class="toc-text">解決方法</span></a></li></ol>
     </div>
   </div><div class="post-content"><p>主要是關於</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/cmake/3.8.1...</span><br><span class="line">Error: Could not symlink share/man/man7/cmake-buildsystem.7</span><br><span class="line">/usr/local/share/man/man7 is not writable.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linking &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;cmake&#x2F;3.8.1...</span><br><span class="line">Error: Could not symlink share&#x2F;man&#x2F;man7&#x2F;cmake-buildsystem.7</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;share&#x2F;man&#x2F;man7 is not writable.</span><br></pre></td></tr></table></figure>
 
 <p>問題的解決方案。</p>
 <a id="more"></a>
@@ -176,7 +170,11 @@
 <p>導致無法執行<code>link</code>指令，像是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link vim</span><br></pre></td></tr></table></figure>
 
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $USER /usr/local/share/man</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $USER &#x2F;usr&#x2F;local&#x2F;share&#x2F;man</span><br></pre></td></tr></table></figure>
 
 <p>直接新增該目錄的權限使用者。</p>
 
@@ -202,24 +200,24 @@
     </article></div><div class="comments" id="comments"><div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
-        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
         </div><div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
   </span>
   <span class="division">|</span>
   <span class="theme-info">
     主題 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
   </span>
 
   <span class="copyright-year">&copy;2019 - 2020<span class="heart">

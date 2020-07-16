@@ -13,19 +13,20 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="【程式筆記】 hello_hexo"/><meta name="keywords" content="Dephilia" /><meta name="description" content="主要略述一下使用hexo架站遇到的問題。
-順便練習寫寫看技術筆記">
+<meta name="description" content="【程式筆記】 hello_hexo"/><meta name="keywords" content="Dephilia" /><meta name="description" content="主要略述一下使用hexo架站遇到的問題。 順便練習寫寫看技術筆記">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【程式筆記】 hello_hexo">
-<meta property="og:url" content="http://www.dephilia.moe/2019/01/15/程式筆記-hello_hexo/index.html">
+<meta property="og:url" content="http://www.dephilia.moe/2019/01/15/%E7%A8%8B%E5%BC%8F%E7%AD%86%E8%A8%98-hello_hexo/index.html">
 <meta property="og:site_name" content="虫世木場">
-<meta property="og:description" content="主要略述一下使用hexo架站遇到的問題。
-順便練習寫寫看技術筆記">
-<meta property="og:updated_time" content="2019-01-15T08:06:44.000Z">
+<meta property="og:description" content="主要略述一下使用hexo架站遇到的問題。 順便練習寫寫看技術筆記">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2019-01-15T05:05:36.000Z">
+<meta property="article:modified_time" content="2019-01-15T08:06:44.000Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="Techonology">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="even">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【程式筆記】 hello_hexo">
-<meta name="twitter:description" content="主要略述一下使用hexo架站遇到的問題。
-順便練習寫寫看技術筆記">
 
 <link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
 <link rel="canonical" href="http://www.dephilia.moe/2019/01/15/程式筆記-hello_hexo/"/>
@@ -63,7 +64,7 @@
 </script>
 
     <title>【程式筆記】 hello_hexo - 虫世木場</title>
-  </head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -160,7 +161,7 @@
 <p><del>順便練習寫寫看技術筆記</del></p>
 <a id="more"></a>
 
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>網路上有很多<a href="https://hexo.io/zh-tw/docs/setup" target="_blank" rel="external">文件</a>了，這邊就不贅述太多<br>根據官方文件，直接運行以下程式碼：</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>網路上有很多<a href="https://hexo.io/zh-tw/docs/setup" target="_blank" rel="noopener">文件</a>了，這邊就不贅述太多<br>根據官方文件，直接運行以下程式碼：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init [blog_name]</span><br><span class="line"><span class="built_in">cd</span> blog_name</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
 <p>就能夠初始化網誌空間。</p>
@@ -171,7 +172,7 @@
 
 <p>先運行clean是避免緩存影響了靜態網頁的產生，但若是沒太大的問題也可以不用執行這行指令。</p>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>大部分設定都位於<code>_config.yml</code>這份文件裡，關於theme中的文件也是一樣。</p>
-<p>deploy的設定在裡面的deploy區塊，我是直接推送到github上，關於deploy的部分也請參考<a href="https://hexo.io/zh-tw/docs/deployment" target="_blank" rel="external">官方文件</a>。<br>SSH key的設定則參考<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">Github官方文件</a></p>
+<p>deploy的設定在裡面的deploy區塊，我是直接推送到github上，關於deploy的部分也請參考<a href="https://hexo.io/zh-tw/docs/deployment" target="_blank" rel="noopener">官方文件</a>。<br>SSH key的設定則參考<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">Github官方文件</a></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://your.blog.com</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="主要問題"><a href="#主要問題" class="headerlink" title="主要問題"></a>主要問題</h2><p>架設時遇到最大的問題，主要是<strong>網址設定錯誤導致的主題無法套用</strong>。  </p>
@@ -196,12 +197,12 @@
             <a href="/tags/even/">even</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2019/01/23/音楽/">
+        <nav class="post-nav"><a class="prev" href="/2019/01/23/%E9%9F%B3%E6%A5%BD/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">音楽</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
-    <a class="next" href="/2019/01/15/始まりました〜/">
+    <a class="next" href="/2019/01/15/%E5%A7%8B%E3%81%BE%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F%E3%80%9C/">
         <span class="next-text nav-default">始まりました〜</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
@@ -210,24 +211,24 @@
     </article></div><div class="comments" id="comments"><div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://twitter.com/Dephilia_music" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="https://github.com/Dephilia" class="iconfont icon-github" title="github"></a>
-        <a href="http://www.plurk.com/Dephillia" class="iconfont icon-plurk" title="plurk"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
         </div><div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 技術提供
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
   </span>
   <span class="division">|</span>
   <span class="theme-info">
     主題 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
   </span>
 
   <span class="copyright-year">&copy;2019 - 2020<span class="heart">
@@ -243,7 +244,7 @@
       </div>
     </div><script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://www.dephilia.moe/2019/01/15/程式筆記-hello_hexo/';
+        this.page.url = 'http://www.dephilia.moe/2019/01/15/%E7%A8%8B%E5%BC%8F%E7%AD%86%E8%A8%98-hello_hexo/';
         this.page.identifier = '2019/01/15/程式筆記-hello_hexo/';
         this.page.title = '【程式筆記】 hello_hexo';
     };
