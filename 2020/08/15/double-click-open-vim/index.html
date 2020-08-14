@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【祕技】雙點擊用Vim打開程式碼"/><meta name="keywords" content="Dephilia" /><meta name="description" content="如題 我就是想在mac上點擊兩下就用vim開啟檔案。 無奈在mac裏vim不是一個Application，所以要使用automator來幫忙了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【祕技】雙點擊用Vim打開程式碼">
+<meta property="og:url" content="http://www.dephilia.moe/2020/08/15/double-click-open-vim/index.html">
+<meta property="og:site_name" content="虫世木場">
+<meta property="og:description" content="如題 我就是想在mac上點擊兩下就用vim開啟檔案。 無奈在mac裏vim不是一個Application，所以要使用automator來幫忙了">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://www.dephilia.moe/2020/08/15/double-click-open-vim/vim.png">
+<meta property="og:image" content="http://www.dephilia.moe/2020/08/15/double-click-open-vim/automator.png">
+<meta property="article:published_time" content="2020-08-14T17:54:13.000Z">
+<meta property="article:modified_time" content="2020-08-14T18:01:30.036Z">
+<meta property="article:author" content="Dephilia">
+<meta property="article:tag" content="Techonology">
+<meta property="article:tag" content="Terminal">
+<meta property="article:tag" content="Apple Script">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.dephilia.moe/2020/08/15/double-click-open-vim/vim.png">
+
+<link rel="alternate" href="/atom.xml" title="虫世木場"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://www.dephilia.moe/2020/08/15/double-click-open-vim/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144568170-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144568170-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
+</script>
+
+    <title>【祕技】雙點擊用Vim打開程式碼 - 虫世木場</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">虫世木場</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首頁
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">歸檔
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">標籤
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分類
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">關於
+          </li>
+      </a><a href="/intro/">
+        <li class="mobile-menu-item">經歷
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">虫世木場</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首頁
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            歸檔
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            標籤
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分類
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            關於
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/intro/">
+            經歷
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【祕技】雙點擊用Vim打開程式碼
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-08-15
+        </span><span class="post-category">
+            <a href="/categories/Program/">Program</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目錄</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#程式碼"><span class="toc-text">程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解說"><span class="toc-text">解說</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><img src="/2020/08/15/double-click-open-vim/vim.png" class="" title="Front">
+
+<p>如題</p>
+<p>我就是想在mac上點擊兩下就用vim開啟檔案。</p>
+<p>無奈在mac裏vim不是一個Application，所以要使用automator來幫忙了</p>
+<a id="more"></a>
+
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><p>先上Apple Script的內容</p>
+<figure class="highlight plain"><figcaption><span>Script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">on run &#123;input, parameters&#125;</span><br><span class="line">	set myPath to POSIX path of input</span><br><span class="line">	set cmd to &quot;:e &quot; &amp; myPath</span><br><span class="line">	tell application &quot;iTerm&quot;		</span><br><span class="line">		set newWindow to (create window with profile &quot;vim&quot;)</span><br><span class="line">		tell newWindow</span><br><span class="line">			tell current session</span><br><span class="line">				write text cmd</span><br><span class="line">			end tell</span><br><span class="line">		end tell</span><br><span class="line">	end tell</span><br><span class="line">end run</span><br></pre></td></tr></table></figure>
+
+<p>前置步驟：（沒有做的話程式碼要另外打開vim）</p>
+<ol>
+<li>在iTerm新增一個profile，不用Login Shell改用Command</li>
+<li>直接呼叫Vim出來（跳過啟動Shell）</li>
+</ol>
+<p>然後就是寫Automator</p>
+<p>步驟如下</p>
+<ol>
+<li>在Automator新增Application</li>
+<li>在Action&gt;Library&gt;Utilities中，將”Run AppleScript”拉去右邊</li>
+<li>貼上上面的程式碼</li>
+<li>儲存成Application</li>
+</ol>
+<p>之後右鍵打開任何檔案的時候，選擇這個應用程式就好了。<br>或是直接右鍵檔案，Info中有預設打開的程式，全部替換掉也可。</p>
+<img src="/2020/08/15/double-click-open-vim/automator.png" class="" title="Front">
+
+<p>本程式碼在iTerm2下，macOS 10.15.6下測試過。</p>
+<h3 id="解說"><a href="#解說" class="headerlink" title="解說"></a>解說</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set myPath to POSIX path of input</span><br></pre></td></tr></table></figure>
+
+<p>召喚輸入的路徑，存成<code>mypath</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set cmd to &quot;:e &quot; &amp; myPath</span><br></pre></td></tr></table></figure>
+<p>設定傳入vim的指令，<code>:e path</code>可以打開路徑檔案。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;iTerm&quot;		</span><br><span class="line">		set newWindow to (create window with profile &quot;vim&quot;)</span><br><span class="line">		tell newWindow</span><br><span class="line">			tell current session</span><br><span class="line">				write text cmd</span><br><span class="line">			end tell</span><br><span class="line">		end tell</span><br><span class="line">end tell</span><br></pre></td></tr></table></figure>
+
+<p>呼叫iTerm，並且新增Vim profile。<br>如果沒有Vim profile的話記得要多加一行打開它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tell current session</span><br><span class="line">  write text cmd</span><br><span class="line">end tell</span><br></pre></td></tr></table></figure>
+<p>呼叫當前的Session，也就是Vim，傳入上面已經設好的cmd指令</p>
+<p>這樣就大功告成了。</p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://stackoverflow.com/questions/39430002/applescript-expected-end-of-line-but-found-identifier-for-terminal-app" target="_blank" rel="noopener">https://stackoverflow.com/questions/39430002/applescript-expected-end-of-line-but-found-identifier-for-terminal-app</a></li>
+<li><a href="https://thepugautomatic.com/2015/02/open-in-iterm-vim-from-finder/" target="_blank" rel="noopener">https://thepugautomatic.com/2015/02/open-in-iterm-vim-from-finder/</a></li>
+<li><a href="https://www.iterm2.com/documentation-scripting.html" target="_blank" rel="noopener">https://www.iterm2.com/documentation-scripting.html</a></li>
+</ol>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Techonology/">Techonology</a>
+            <a href="/tags/Terminal/">Terminal</a>
+            <a href="/tags/Apple-Script/">Apple Script</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2020/08/13/wawawa/">
+        <span class="next-text nav-default">【雜】爽啦</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:leedaniel682@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Dephilia_music" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/Dephilia" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="http://www.plurk.com/Dephillia" target="_blank" rel="noopener" class="iconfont icon-plurk" title="plurk"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 技術提供
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Dephilia</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.dephilia.moe/2020/08/15/double-click-open-vim/';
+        this.page.identifier = '2020/08/15/double-click-open-vim/';
+        this.page.title = '【祕技】雙點擊用Vim打開程式碼';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//dephilia.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
