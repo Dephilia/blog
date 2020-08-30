@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.dephilia.moe/2020/08/31/rust-hello-world/</loc>
+    
+    <lastmod>2020-08-30T17:56:27.926Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.dephilia.moe/2020/08/15/double-click-open-vim/</loc>
     
     <lastmod>2020-08-14T18:01:30.036Z</lastmod>
