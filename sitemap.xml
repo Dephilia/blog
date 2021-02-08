@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.dephilia.moe/intro/index.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.dephilia.moe/2021/02/09/learning-site/</loc>
     
     <lastmod>2021-02-08</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://www.dephilia.moe/2020/10/12/ffmpeg-webcam/</loc>
     
     <lastmod>2020-10-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dephilia.moe/intro/index.html</loc>
-    
-    <lastmod>2020-09-08</lastmod>
     
   </url>
   
@@ -277,6 +277,13 @@
   </url>
   
   <url>
+    <loc>http://www.dephilia.moe/tags/brew/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.dephilia.moe/tags/Note/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -285,13 +292,6 @@
   
   <url>
     <loc>http://www.dephilia.moe/tags/Linux/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.dephilia.moe/tags/brew/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -312,6 +312,13 @@
   </url>
   
   <url>
+    <loc>http://www.dephilia.moe/tags/ControlSystem/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.dephilia.moe/tags/learning/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -320,13 +327,6 @@
   
   <url>
     <loc>http://www.dephilia.moe/tags/sites/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.dephilia.moe/tags/ControlSystem/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -354,13 +354,6 @@
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/tags/otaku/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.dephilia.moe/tags/hexo/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -369,6 +362,13 @@
   
   <url>
     <loc>http://www.dephilia.moe/tags/even/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dephilia.moe/tags/otaku/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -445,13 +445,6 @@
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/tags/wtf/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.dephilia.moe/tags/app/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -465,14 +458,14 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>http://www.dephilia.moe/categories/Diary/</loc>
+    <loc>http://www.dephilia.moe/tags/wtf/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+
   
   <url>
     <loc>http://www.dephilia.moe/categories/Music/</loc>
@@ -482,14 +475,14 @@
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/categories/Linux/</loc>
+    <loc>http://www.dephilia.moe/categories/Note/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/categories/Note/</loc>
+    <loc>http://www.dephilia.moe/categories/Linux/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -559,14 +552,21 @@
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/categories/wtf/</loc>
+    <loc>http://www.dephilia.moe/categories/share/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.dephilia.moe/categories/share/</loc>
+    <loc>http://www.dephilia.moe/categories/Diary/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dephilia.moe/categories/wtf/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
